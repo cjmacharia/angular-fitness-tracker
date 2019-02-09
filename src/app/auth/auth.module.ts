@@ -6,12 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../app/material';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
 	declarations: [SignupComponent,
 		LoginComponent,],
 	imports: [
 		CommonModule,
+		AuthRoutingModule,
 		AngularFireAuthModule,
 		FormsModule,
 		FlexLayoutModule,

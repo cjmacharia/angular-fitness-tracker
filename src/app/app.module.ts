@@ -10,28 +10,22 @@ import { CurrentTrainingComponent } from './trainig/current-training/current-tra
 import { NewTrainingComponent } from './trainig/new-training/new-training.component';
 import { PastTrainingComponent } from './trainig/past-training/past-training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { StopTrainingComponent } from './trainig/current-training/stop-training/stop-training.component';
-import { AuthGuardService } from './auth-guard.service';
 import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthModule } from './auth/auth.module';
+import { reducers } from './app.reducer';
 @NgModule({
 	declarations: [
 		AppComponent,
-		TrainigComponent,
-		CurrentTrainingComponent,
-		NewTrainingComponent,
-		PastTrainingComponent,
 		WelcomeComponent,
 		HeaderComponent,
 		SidenavListComponent,
-		StopTrainingComponent
 	],
 	imports: [
 		BrowserModule,
@@ -43,10 +37,11 @@ import { AuthModule } from './auth/auth.module';
 		FlexLayoutModule,
 		AppRoutingModule,
 		MaterialModule,
-		AppRoutingModule
+		StoreModule.forRoot(reducers),
+		AppRoutingModule,
+
 	],
 	providers: [],
 	bootstrap: [AppComponent],
-	entryComponents: [StopTrainingComponent]
 })
 export class AppModule { }
